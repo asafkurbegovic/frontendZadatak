@@ -15,6 +15,7 @@ class App extends React.Component {
     this.state = {
       data: null,
       isLogged: false,
+      cookie:document.cookie.match(/^(.*;)?\s*MyCookie\s*=\s*[^;]+(.*)?$/)
     };
   }
 

@@ -17,8 +17,7 @@ class MyQuestions extends React.Component {
       })
       .then((data) => {
         console.log(data);
-        if (data[0].question) this.setState({ data:data });
-        else this.setState({ message: "NO QUESTIONS" });
+        this.setState({ data:data.result }); ;
       });
   }
 
@@ -28,7 +27,7 @@ class MyQuestions extends React.Component {
         <h3>YOUR QUESTIONS</h3>
         {this.state.message ? <a>We cant find any questions here</a> : ""}
         <ListGroup>
-          {this.state.data.map((item) => (
+          { this.state.data.map((item) => (
             <ListGroup.Item>{item.question}</ListGroup.Item>
           ))}
         </ListGroup>
