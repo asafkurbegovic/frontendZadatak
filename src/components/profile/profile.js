@@ -49,6 +49,8 @@ class Profile extends React.Component {
       });
   }
 
+ 
+
   render() {
     return (
       <Container className="rounded shadow border border-primary" style={{width:"60%", padding:"20px"}}>
@@ -68,9 +70,11 @@ class Profile extends React.Component {
               Change
             </Button></div>
             {this.state.showComponent ?
-           <ChangePass /> :
+           <ChangePass datatochild={"here is message"} /> :
            null}
+           
           </div>
+          
         ) : (
           <h1>YOU ARE NOT LOGGED IN</h1>
         )}

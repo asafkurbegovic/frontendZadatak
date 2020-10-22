@@ -8,8 +8,12 @@ class ChangePass extends React.Component {
     super(props);
     this.state = {
       newPass: "",
+      datatochild:this.props.datatochild
     };
+    
   }
+
+
 
   onPress = (props) => {
     this.setState({
@@ -56,7 +60,9 @@ class ChangePass extends React.Component {
           <Button variant="primary" type="submit" >
           Submit
         </Button>
+        <Button onClick={()=>this.tryFunction(this.props)}>try me</Button>
         </Form.Group>
+        {this.state.datatochild}
         
       </Form>
     );

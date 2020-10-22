@@ -8,6 +8,7 @@ import Registration from "./components/forms/registration";
 import Profile from "./components/profile/profile";
 import TopQuestions from "./components/topquestions";
 import MyQuestions from "./components/myQuestions";
+import QuestionPage from "./components/questionsPage"
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class App extends React.Component {
     this.state = {
       data: null,
       isLogged: false,
-      cookie:document.cookie.match(/^(.*;)?\s*MyCookie\s*=\s*[^;]+(.*)?$/)
+      cookie: document.cookie.match(/^(.*;)?\s*MyCookie\s*=\s*[^;]+(.*)?$/),
     };
   }
 
@@ -30,7 +31,7 @@ class App extends React.Component {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
+        console.log("here are this data "+data.result);
         if (data.message == "positive") {
           this.setState({
             isLogged: true,
@@ -56,15 +57,18 @@ class App extends React.Component {
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            {this.state.isLogged ? (
-              <Nav.Link as={Link} to="/profile">
-                Profile
-              </Nav.Link>
-            ) : null}
+            <Nav.Link as={Link} to="/questions">
+              Questions
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item>
+            <Nav.Link as={Link} to="/profile">
+              Profile
+            </Nav.Link>
+           </Nav.Item>
+          <Nav.Item>
             <Nav.Link as={Link} to="/myquestions">
-            My Questions
+              My Questions
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
@@ -80,7 +84,10 @@ class App extends React.Component {
         </Nav>
         <Switch>
           <Route path="/login">
-            <Login  />
+            <Login />
+          </Route>
+          <Route path="/questions" >
+            <QuestionPage/>
           </Route>
           <Route path="/register">
             <Registration />
@@ -89,7 +96,7 @@ class App extends React.Component {
             <Profile />
           </Route>
           <Route path="/myquestions">
-            <MyQuestions/>
+            <MyQuestions  />
           </Route>
           <Route path="/">
             <div className="App">
