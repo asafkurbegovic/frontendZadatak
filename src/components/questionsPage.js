@@ -67,10 +67,10 @@ class QuestionPage extends React.Component {
       <Container>
         <Container onClick={() => this.addAnswer}>
           {this.state.questions.map((item) => (
-            <Container value={item.id} className="border rounded" key={item.id}>
+            <Container  className="border rounded" key={item.id}>
               {item.question}
               {this.state.answers.map((ans) => (
-                <Container>
+                <Container >
                   {item.id === ans.questionid ? (
                     <span>{ans.answer}</span>
                   ) : null}
@@ -88,7 +88,7 @@ class QuestionPage extends React.Component {
                     Answer
                   </Button>
                 </FormGroup>
-              </Form>:""}
+              </Form>:<small >LOG IN OR REGISTER IF YOU WANT TO ANSWER THIS QUESTION</small>}
             </Container>
           ))}
         </Container>
